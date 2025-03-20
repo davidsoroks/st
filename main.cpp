@@ -8,7 +8,6 @@ using namespace std;
 
 int main(){
     print_res();
-
     return 0;
 }
 
