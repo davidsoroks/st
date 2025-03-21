@@ -15,18 +15,16 @@ void add(tovar &p1, tovar &p2){
 void multiply(tovar &p1, int qual) {
     p1.grn *= qual;
     p1.cop *= qual;
-    p1.grn += p1.cop / 100;
-    p1.cop %= 100;
+    if (p1.cop >= 100){
+        p1.grn = p1.grn + (p1.cop / 100);
+        p1.cop = p1.cop % 100;
+    }
 }
 void round(tovar &p1) {
-    if (p1.cop % 10 >= 5) {
-        p1.cop += (10 - p1.cop % 10); // Округлення вгору
-    } else {
+    if (p1.cop % 10 > 5) {
+        p1.cop += (10 - (p1.cop % 10)); // Округлення вгору
+    } else if( p1.cop % 10 < 5) {
         p1.cop -= p1.cop % 10; // Округлення вниз
-    }
-    if (p1.cop >= 100) {
-        p1.grn += p1.cop / 100;
-        p1.cop %= 100;
     }
 }
 
@@ -47,11 +45,15 @@ void print_res() {
     temp.cop = static_cast<short int>(kop);
     temp.quantity = quantity;
 
-        round(temp);
-        multiply(temp, quantity);
-        add(total, temp);
+    multiply(temp, quantity);
+    add(total, temp);
     }
+
     file.close();
-    cout << "Вартість всіх товарів: " << total.grn << " грн. " << total.cop << " коп." << endl;
+    cout << "Сума до оплати до заокруглення: " << total.grn << " грн. " << total.cop << " коп." << endl;
+    
+    round(total);
+    cout << "Сума всіх товарів після округлення: " << total.grn << " грн. " << total.cop << " коп." << endl;
+
 
 }
