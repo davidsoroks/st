@@ -42,7 +42,7 @@ void print_res(){
     
     tovar temp;
     temp.grn = grn;
-    temp.cop = static_cast<short int>(kop); // перетворення int в short int 
+    temp.cop = kop;
 
     multiply(temp, quantity);
     add(total, temp);
