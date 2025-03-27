@@ -8,8 +8,7 @@
 using namespace std;
 
 struct tovar{
-    string name;
-    int grn, quantity;
+    int grn;
     short int cop;
 };
 
