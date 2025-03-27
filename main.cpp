@@ -2,7 +2,7 @@
 #include "funct_cr.h"
 
 int main(){
-    print_res();
+    print();
     return 0;
 }
 

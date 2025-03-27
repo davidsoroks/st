@@ -15,6 +15,6 @@ struct tovar{
 void add(tovar &p1, tovar &p2);
 void multiply(tovar &p1, int qual);
 void round(tovar &p1);
-void print_res();
+void print();
 
 #endif //FUNCT_CR.H
